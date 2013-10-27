@@ -1,0 +1,21 @@
+.registerinput {
+	color: #F0F1F5;
+	margin-left: 5px;
+	background-color: #878282;
+	border: solid 1px black;
+}
+
+.ExpdateFont {
+	font-size: 1.2em;
+	line-height: 1;
+	margin-bottom: 1.25em;
+}
+
+.renewMembershipButton{
+	margin-left:5px;
+	border: solid 1px white;
+	background-color: #878282;
+	font-size: 10px;
+	font-weight: bolder;
+	padding: 7px;
+}

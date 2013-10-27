@@ -1,0 +1,21 @@
+.searchResultContainer {
+	margin-bottom:20px;
+	height:470px;
+	overflow-y: auto;
+}
+
+.searchMapStyle {
+	display: block;
+	height: 100%;
+	margin-bottom:20px;
+	height: 470px;
+}
+
+.viewMapButton {
+	margin-left:5px;
+	border: solid 1px white;
+	background-color: #878282;
+	font-size: 10px;
+	font-weight: bolder;
+	padding: 7px;
+}

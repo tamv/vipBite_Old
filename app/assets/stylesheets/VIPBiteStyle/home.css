@@ -1,0 +1,35 @@
+.topContent {
+	position: relative;
+	width:100%;
+	height: 270px;
+	display:inline-block;
+}
+
+.howItWorkBox {
+	position: absolute;
+	bottom: 30px;
+	left:0px;
+	width: 330px;
+	height: 190px;
+	display: block;
+	background-color: rgba(255, 255, 255, 0.7)
+}
+
+.headingFont {
+
+}
+
+.becomeMemberButton {
+	background-color: #C9CBD4;
+	border: solid 1px black;
+	text-align:center;
+	padding:5px;
+	height: 20px;
+	width: 200px;
+	position: absolute;
+	right: 0px;
+	bottom: 10px;
+	font-size:12px;
+	font-weight:bolder;
+	line-height: 20px;
+}

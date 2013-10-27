@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>VIPBITE</title>
+	  <!-- Section used for protection-->
+	  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	  <meta charset="utf-8">
+	  <%= csrf_meta_tags %>
+
+	  <!-- INCLUDING STYLESHEET -->
+	  <%= stylesheet_link_tag 'application', :media => 'all'%>
+
+	  <!-- INCLUDING JAVASCRIPT -->
+	  <%= javascript_include_tag 'jquery' %>
+	  <%= javascript_include_tag 'application' %>
+	  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+	</head>
+	<body>
+		<div class="content-container">
+			<a href="/"><img src="/Image/Shared/logo.png" class="logo" withd="300"></a>
+
+			<div id="vipBite_header" class="header-container">
+				<% if(checkUserCookies) %>
+					<div id="navigationMenu" class="navigation-menu">
+						<nav class="nav-Menu">
+							<span class="nav-item"><a href="/search" class="nav-option">FIND A RESTAURANT</a></span>
+							<span class="nav-item"><a href="/restaurant" class="nav-option">HOW IT WORKS</a></span>
+							<span class="nav-item"><a href="/renew" class="nav-option">RE-NEW MEMBERSHIP</a></span>
+						</nav>
+					</div>
+
+					<div id="loginSection" class="login-container">
+						<a href="/logout" class="user-selection">Logout</a>
+						<a href="/account" class="user-selection"><%= @current_user.login %></a>
+					</div>
+				<% else %>
+					<div id="navigationMenu" class="navigation-menu">
+						<nav class="nav-Menu">
+							<span class="nav-item"><a href="/search" class="nav-option">FIND A RESTAURANT</a></span>
+							<span class="nav-item"><a href="/restaurant" class="nav-option">HOW IT WORKS</a></span>
+							<span class="nav-item"><a href="/restaurant" class="nav-option">BECOME A MEMBER</a></span>
+						</nav>
+					</div>
+
+					<%= form_tag( controller: 'session', action: 'LogIn', method: 'post') do %>
+						<div id="loginSection" class="login-container">
+							<section>
+								<label class="AaarghFont" style="margin-left: 5px; font-size: 10px; font-weight:bold; color: #BBBDBB;">EMAIL:</label>
+								<%= email_field_tag('email', nil, maxlength: 30, :class=>"userinput") %>
+								<label class="AaarghFont" style="margin-left: 5px; font-size: 10px; font-weight:bold; color: #BBBDBB;">PASS:</label>
+								<%= password_field_tag('password', nil, maxlength:20, :class=>"userinput") %>
+								<%= submit_tag('LOGIN', :class=>"userLoginButton clickable")%>
+							</section>
+              				<section class="margin-top-10px margin-right-35px">
+              					<a href="/forgetpassword" class="headerlink">FORGOT YOUR PASSWORD?</a>
+              					<text class="headerlink"> | </text>
+              					<a href="/register" class="headerlink">REGISTER NOW</a>
+              				</section>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+
+			<%= yield %>
+
+			<div id="vipBite_footer" class="footer-container">
+				<div id="footercontent" class="container" style="margin-top: 20px;">
+					<section id="aboutUs" class="span-7">
+						<label>VIPbite</label>
+
+						<p class="paragraphFont margin-top-5px margin-left-5px">
+							VIPbite is a restaurant discount membership program unlike any other food or beverage savings offerings. Don't bother waiting for daily deal coupons or other promotions in your area, VIPbite gives you instant access to start saving today on local restaurants in your area.
+						</p>
+					</section>
+
+					<section id="socialMedia" class="span-7 push-2">
+						<label>GET SOCIAL</label>
+
+						<div class="margin-top-10px margin-bottom-10px margin-auto">
+							<div class="margin-bottom-10px">
+								<img src="/Image/Shared/twitter.png" width="25px" height="25px">
+								<img class="margin-left-5px" src="/Image/Shared/facebook.png" width="25px" height="25px"/>
+								<img class="margin-left-5px" src="/Image/Shared/instargram.png" width="25px" height="25px"/>
+								<img class="margin-left-5px" src="/Image/Shared/pinterest.png" width="25px" height="25px"/>
+							</div>
+
+							<div class="margin-top-10px">
+									<a href="https://twitter.com/VIPbite" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @VIPbite</a>
+									<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.vipbite.ca" data-via="VIPbite">Tweet</a>
+							</div>
+						</div>
+					</section>
+
+					<section id="policies" class="span-7 push-3">
+						<label>THE DETAILS</label>
+
+						<ul class="margin-top-10px margin-botton-10px margin-auto">
+							<li class="margin-top-5px"><a href="/contact"><text class="linkFont">Contact Us</text></a></li>
+							<li class="margin-top-5px"><a href="/contact"><text class="linkFont">FAQ</text></a></li>
+							<li class="margin-top-5px"><a href="/contact"><text class="linkFont">Privacy Statement</text></a></li>
+							<li class="margin-top-5px"><a href="/contact"><text class="linkFont">Term of Use</text></a></li>
+						</ul>
+					</section>
+
+					<section id="stieCredit" class="credited-container">
+						© 2014 vipBite.com . All rights reserved. Design&Implement By: Tamanon Virulhakieat
+					</section>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

@@ -1,0 +1,87 @@
+<div class="body-container">
+	<div id="pageContent" class="container" style="margin-top: 40px">
+		<%= form_tag(controller: 'account', action: 'userAccount', method: "post") do %>
+			<div class="span-20">
+				<h2>MEMBER INFORMATION</h2>	
+				<table class="margin-left-10px">
+					<tr>
+						<th><label>FIRST NAME:</label></th>
+						<th><label> LAST NAME:</label></th>
+					</tr>
+					<tr>
+						<td><%= text_field_tag('firstName', @FirstName, maxlength: 30, size: 25, :class=>"registerinput") %></td>
+						<td><%= text_field_tag('lastName', @LastName, maxlength: 30, size: 25, :class=>"registerinput") %></td>
+					</tr>
+					<tr>
+						<th><label>EMAIL:</label></th>
+					</tr>
+					<tr>
+						<td><%= email_field_tag('email', @Email || nil, maxlength: 30, size: 25, :class=>"registerinput") %></td>
+					</tr>
+				</table>
+				
+				<hr class="margin-top-10px"/>
+
+				<h2>PAYMENT & BILLING INFORMATION</h2>
+				<label class="margin-left-10px margin-right-25px" style="font-weight:bold;">MEMBERSHIP TYPE:</label>
+				<%= radio_button_tag('memberType', '6months', :class=>"registerinput") %>
+				<label class="margin-left-5px margin-right-25px">6 months -$69.95</label>
+				<%= radio_button_tag('memberType', '12months', :class=>"registerinput") %>
+				<label class="margin-left-5px margin-right-25px">12 months -$124.95</label>
+				<hr class="space"/>
+				<table class="margin-left-10px">
+					<tr>
+						<th><label>FIRSTNAME:</label></th>
+						<th><label>LASTNAME:</label></th>
+						<th><label>CARD TYPE:</label></th>
+					</tr>
+					<tr>
+						<td><%= text_field_tag('noc_firstname', params[:noc_firstname] || nil, placeholder: "Firstname", maxlength: 30, size: 25, :class=>"registerinput") %></td>
+						<td><%= text_field_tag('noc_lastname', params[:noc_lastname] || nil, placeholder: "Lastname", maxlength: 30, size: 25, :class=>"registerinput") %></td>
+						<td><%= select_tag('cardtype', options_for_select(["VISA", "MASTERCARD", "AMERICANEXP"]), :class=>"registerinput") %></td>
+					</tr>
+					<tr>
+						<th><label>CARD NUMBER:</label></th>
+						<th><label>EXP:</label></th>
+						<th><label>CVV/CID NUMBER:</label></th>
+					</tr>
+					<tr>
+						<td><%= text_field_tag('cardno', nil, maxlength: 20, size: 25, :class=>"registerinput")%></td>
+						<td>
+							<%= text_field_tag('exp_month', nil, maxlength: 2, placeholder: "MM", :class=>"registerinput", :size=> 2)%>
+							<%= text_field_tag('exp_year', nil, maxlength: 4, placeholder: "YYYY", :class=>"registerinput", :size=> 4)%>
+						</td>
+						<td><%= password_field_tag('cvv', nil, maxlength: 3, :class=>"registerinput")%></td>
+					</tr>
+					<tr>
+						<th><label>BILLING ADDRESS:</label></th>
+						<th><label>CITY:</label></th>
+						<th><label>PROVINCE:</label></th>
+					</tr>
+					<tr>
+						<td><%= text_field_tag('address', params[:address] || nil, maxlength: 60, size: 25, :class=>"registerinput") %></td>
+						<td><%= text_field_tag('city', params[:city] || nil, maxlength: 20, size: 25, :class=>"registerinput") %></td>
+						<td><%= select_tag('prov', options_for_select(["AB", "BC"]), :class=>"registerinput") %></td>
+					</tr>
+					<tr>
+						<th><label>POSTAL:</label></th>
+						<th><label>PHONE:</label></th>
+					</tr>
+					<tr>
+						<td><%= text_field_tag('postal', params[:postal] || nil, maxlength: 7, size: 4, :class=>"registerinput") %></td>
+						<td><%= text_field_tag('phone', params[:phone] || nil, maxlength: 11, size: 25, :class=>"registerinput") %></td>
+					</tr>
+				</table>
+				<hr class="space"/>
+				<div class="last"><span style="float:right"><%= submit_tag('RE-NEW SUBSCRIPTION', :class=>"renewMembershipButton clickable") %></span></div>
+			</div>
+		<% end %>
+		
+		<div class="span-20">
+			<hr class="margin-top-10px"/>
+			<h1> DON'T FORGET THE APP</h1>
+			<p style="font-size: 20px;">Think of the VIPbite as a card.( you don't need another one cluttering your wallet)
+				Flash the app at participating VIPbite restaurants and reap the rewards.</p>
+		</div>
+	</div>
+</div>
