@@ -1,0 +1,29 @@
+<div class="body-container">
+	<div id="pageContent" class="container" style="margin-top: 40px">
+		<h1>CONTACT</h1>
+		<div class="span-8 colborder" style="margin-left: 10px;">
+			<table>
+				<tr>
+					<th><h3><label>SUPPORT EMAIL:</label></h3></th>
+					<td><h3><label>hello@vipbite.com</label></h3></td>
+				</tr>
+				<tr>
+					<th><h3><label>PHONE:</label></th>
+					<td><h3><label>1800-234-1234</label></h3></td>
+				</tr>
+			</table>
+		</div>
+		<hr/>
+		<h1>EMAIL SUPPORT TEAM</h1>
+		<div class="span-16" style="margin-left: 10px">
+			<%= form_tag(controller: 'home', action: 'contactUs', method: 'post') do %>
+				<% if(!checkUserCookies)%>
+					<%= email_field_tag('email', params[:email] || nil, placeholder:"please enter your email address here!", size:35, maxlength: 30)%>
+					<hr class ="space"/>
+				<% end %>
+				<%= text_area_tag('emailContent', params[:emailContent] || nil, style:"width: 630px; height: 300px;") %>
+				<%= submit_tag('SUBMIT', :class=>"contactusSubmitButton clickable", style:"float:right; margin-top:10px;") %>
+			<% end %>
+		</div>
+	</div>
+</div>

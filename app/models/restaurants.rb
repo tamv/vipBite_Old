@@ -1,27 +1,33 @@
 class Restaurants < ActiveRecord::Base
 	require 'geocoder'
 
-	attr_accessible :restaurantName, :address, :city, :province, :postal, :imageUrl, :email,
-	:phone, :operatinghour, :longitude, :latitude, :detailId, :tags
+	attr_accessible :restaurantname, :address, :city, :province, :postal, :imageUrl, :email,
+	:phone, :operatinghour, :longitude, :latitude, :detailId, :tags, :modifieddate
 	
 	def self.NewRestaurant(params)
-		fullAddress = [params[:address], params[:city], params[:province], params[:postal]].join(",")
+		address = params[:address]
+		city = params[:city]
+		prov = params[:province]
+		postal = params[:postal]
+
+		fullAddress = address << "," << city << "," << prov << "," << postal
 
 		latlong = Geocoder.search(fullAddress)
 
 		newRest = Restaurants.create(
-			:restaurantName		=> params[:restaurantName],
+			:restaurantname		=> params[:restaurantname],
 			:address			=> params[:address],
 			:city				=> params[:city],
 			:province 			=> params[:province],
 			:postal 			=> params[:postal],
-			:imageUrl			=> params[:imgUrl],
+			:imageUrl			=> params[:imageUrl],
 			:email				=> params[:email],
 			:phone				=> params[:phone],
-			:operatinghour		=> parmas[:operatinghour],
-			:detailId			=> params[:detailId],
-			:tags				=> params[:searchTag],
-			:latitude			=> params[:latitude],
-			:longitude			=> params[:longitude])
+			:operatinghour		=> params[:operatinghour],
+			:deatilId			=> params[:detailId],
+			:tags				=> params[:tags],
+			:modifieddate		=> params[:dateInsert],
+			:latitude			=> latlong[0].latitude,
+			:longitude			=> latlong[0].longitude)
 	end
 end

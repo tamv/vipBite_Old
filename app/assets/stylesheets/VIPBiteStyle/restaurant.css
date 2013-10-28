@@ -19,3 +19,77 @@
 	font-weight: bolder;
 	padding: 7px;
 }
+
+.restaurantDetailPromoBox {
+	width: 95%;
+	height: 100px;
+	margin: 0px auto;
+	margin-bottom: 10px;
+	border: 1px black solid;
+	border-radius: 20px 0px 0px 0px;
+}
+
+.restaurantDetailsPromotionContent {
+	width: 80%;
+	height: 80%;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.restaurantDetailList {
+	width: 95%;
+	margin: 0px auto; 
+}
+
+.RestaurantImageView {
+	overflow-x: auto;
+	overflow-y:hidden;
+}
+
+.urbanspoonLink {
+	vertical-align: middle;
+	text-align:center;
+}
+
+label.DetailCaption{
+  font-family: "Bonveno", helvetica;
+  font-size: 0.9em; line-height: 1.0;
+  color: #3E4747;
+  font-style:italic;
+}
+
+label.Promotion {
+font-family: "Bonveno", helvetica;
+  font-size: 1.1em; line-height: 1.0;
+  color: black;
+  font-weight: bold;
+  text-transform:uppercase;
+}
+
+th.Caption{
+	line-height: 1.0;
+	font-size: 1.1em;
+	color: black;
+	text-transform:uppercase;
+}
+
+p.promotionDetail {
+	margin-top: 5px;
+  	font-family: "ColabReg", helvetica;
+  	font-size: 12px;
+  	text-indent: 20px;"
+}
+
+li.imgthumbnail {
+	width: 100px;
+	display:inline;
+	margin: 0px auto;
+}
+
+ul.imglist{
+	list-style:none;
+	display:block;
+	white-space:nowrap;
+	margin: 0px auto;
+	padding: 0px;
+}

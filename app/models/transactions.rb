@@ -4,8 +4,6 @@ class Transactions < ActiveRecord::Base
 
 	attr_accessible :transactionId, :userId, :subscription
 
-	private_class_method :billingAddress(params)
-
 	def self.billingAddress(params)
 		{   
 			:name => params[:firstname] + parmas[:lastname],
@@ -17,7 +15,7 @@ class Transactions < ActiveRecord::Base
 		}
 	end
 
-	def self.Subscribtion(params)
+	def self.PurchaseSubscribtion(params)
 		creditCard = ActiveMerchant::Billing::CrediCard.new(
 			:brand				=> parmas[:cardtype],
 			:number				=> params[:cardno],

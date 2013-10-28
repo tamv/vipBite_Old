@@ -26,4 +26,23 @@ Src::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'tamanon.v@gmail.com',
+    password:             '1101401699259',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      :login => "vipbiteseller_api1.gmail.com",
+      :password => "1379234540",
+      :signature => "AjKIh-hQEeSMtF189H7EuPdDcz.5AfXyK9PEfe07f4KMyb2t0-32fx9t")
+  end
 end

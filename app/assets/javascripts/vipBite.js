@@ -1,7 +1,7 @@
 
 $(document).ready( function() {
 	$("#becomeVIPbiteMemberButton").click( function (){
-        window.location.href = "/register";
+        window.location.href = "/account/Registration";
         return;
     })
 });

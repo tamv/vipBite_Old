@@ -14,7 +14,7 @@ class Users < ActiveRecord::Base
 			if(checkPwd == pwd)
 				return user.login
 			else
-				reutnr nil
+				return nil
 			end
 		end
 	end
@@ -70,9 +70,15 @@ class Users < ActiveRecord::Base
 
 	def self.UpDateUserInfo(id, newLogin, newPwd)
 		user = find_by(userId: id)
+
+		if(user == nil)
+			return
+		end
+
 		encrypt = BCrypt::Password.create(newPwd)
 
 		user.login = newLogin if (newLogin != nil)
-		user.newPwd = encrypt if (newPwd != nil)
+		user.password = encrypt if (newPwd != nil)
+		user.save
 	end
 end

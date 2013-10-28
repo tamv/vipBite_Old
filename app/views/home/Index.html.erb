@@ -10,7 +10,7 @@
 				<li><p class="boldFont margin-left-10px"> 2. Save big by being a VIPbite member</p></li>
 				<li><p class="boldFont margin-left-10px"> 3. Have some dessert, you've earn it</p></li>
 
-				<div id="becomeVIPbiteMemberButton"class="clickable becomeMemberButton">
+				<div id="becomeVIPbiteMemberButton"class="clickable homesubmitButton">
 					<p>
 						BECOME A MEMBER NOW 
 						<img src="/Image/Shared/clickon.png" width="20px" height="20px" align="top" style="margin-left: 3px;"/>
@@ -47,16 +47,16 @@
 					<% Restaurants.limit(5).each do |rests| %>
 						<tr>
 							<th style="margin-left: 20px;">
-								<img src="/Image/Home/background.jpg" width="70px" height="30px" style="vertical-align:middle;"/>
+								<%= link_to image_tag('/Image/restaurant_logo/' << rests.imageUrl, style:"width:70px; height:60px;"), {controller: 'restaurant', action: 'restaurantDetail', restaurant: rests.restaurantname}, :target => "_blank" %>
 							</th>
 							<td>
-								<text class="imageCaption"><%= rests.restaurantName %></text>
+								<text class="imageCaption"><%= rests.restaurantname %></text>
 							</td>
 						</tr>
 					<%end%>
 				</table>
 
-				<a class="linkFont" href="/restaurant" style="float: right">click to see more</a>
+				<a class="linkFont" href="/restaurant/search" style="float: right">click to see more</a>
 			</div>
 
 			<div class="span-8">

@@ -24,22 +24,22 @@
 				<% if(checkUserCookies) %>
 					<div id="navigationMenu" class="navigation-menu">
 						<nav class="nav-Menu">
-							<span class="nav-item"><a href="/search" class="nav-option">FIND A RESTAURANT</a></span>
+							<span class="nav-item"><a href="/restaurant/search" class="nav-option">FIND A RESTAURANT</a></span>
 							<span class="nav-item"><a href="/restaurant" class="nav-option">HOW IT WORKS</a></span>
-							<span class="nav-item"><a href="/renew" class="nav-option">RE-NEW MEMBERSHIP</a></span>
+							<span class="nav-item"><a href="/account/renew" class="nav-option">RE-NEW MEMBERSHIP</a></span>
 						</nav>
 					</div>
 
 					<div id="loginSection" class="login-container">
-						<a href="/logout" class="user-selection">Logout</a>
-						<a href="/account" class="user-selection"><%= @current_user.login %></a>
+						<a href="/session/logout" class="user-selection">Logout</a>
+						<a href="/account/user" class="user-selection"><%= @current_user.login %></a>
 					</div>
 				<% else %>
 					<div id="navigationMenu" class="navigation-menu">
 						<nav class="nav-Menu">
-							<span class="nav-item"><a href="/search" class="nav-option">FIND A RESTAURANT</a></span>
+							<span class="nav-item"><a href="/restaurant/search" class="nav-option">FIND A RESTAURANT</a></span>
 							<span class="nav-item"><a href="/restaurant" class="nav-option">HOW IT WORKS</a></span>
-							<span class="nav-item"><a href="/restaurant" class="nav-option">BECOME A MEMBER</a></span>
+							<span class="nav-item"><a href="/account/Registration" class="nav-option">BECOME A MEMBER</a></span>
 						</nav>
 					</div>
 
@@ -53,9 +53,9 @@
 								<%= submit_tag('LOGIN', :class=>"userLoginButton clickable")%>
 							</section>
               				<section class="margin-top-10px margin-right-35px">
-              					<a href="/forgetpassword" class="headerlink">FORGOT YOUR PASSWORD?</a>
+              					<a href="/account/PasswordRecovery" class="headerlink">FORGOT YOUR PASSWORD?</a>
               					<text class="headerlink"> | </text>
-              					<a href="/register" class="headerlink">REGISTER NOW</a>
+              					<a href="/account/Registration" class="headerlink">REGISTER NOW</a>
               				</section>
 						</div>
 					<% end %>
@@ -96,7 +96,7 @@
 						<label>THE DETAILS</label>
 
 						<ul class="margin-top-10px margin-botton-10px margin-auto">
-							<li class="margin-top-5px"><a href="/contact"><text class="linkFont">Contact Us</text></a></li>
+							<li class="margin-top-5px"><a href="/home/ContactUs"><text class="linkFont">Contact Us</text></a></li>
 							<li class="margin-top-5px"><a href="/contact"><text class="linkFont">FAQ</text></a></li>
 							<li class="margin-top-5px"><a href="/contact"><text class="linkFont">Privacy Statement</text></a></li>
 							<li class="margin-top-5px"><a href="/contact"><text class="linkFont">Term of Use</text></a></li>
