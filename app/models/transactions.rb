@@ -6,7 +6,7 @@ class Transactions < ActiveRecord::Base
 
 	def self.billingAddress(params)
 		{   
-			:name => params[:firstname] + parmas[:lastname],
+			:name => params[:firstname] + params[:lastname],
 			:address1 => params[:address],
 			:city => params[:city],
 			:state => params[:province],
@@ -16,20 +16,20 @@ class Transactions < ActiveRecord::Base
 	end
 
 	def self.PurchaseSubscribtion(params)
-		creditCard = ActiveMerchant::Billing::CrediCard.new(
-			:brand				=> parmas[:cardtype],
+		creditCard = ActiveMerchant::Billing::CreditCard.new(
+			:brand				=> params[:cardtype],
 			:number				=> params[:cardno],
-			:first_name 		=> inputParams[:firstname],
-			:last_name 			=> inputParams[:lastname],
-			:month 				=> inputParams[:exp_month],
-			:year 				=> inputParams[:exp_year],
-			:verification_value => inputParams[:cvv])
+			:first_name 		=> params[:firstname],
+			:last_name 			=> params[:lastname],
+			:month 				=> params[:exp_month],
+			:year 				=> params[:exp_year],
+			:verification_value => params[:cvv])
 
 		billing = billingAddress(params)
 
-		if(creditCrad.valid?)
-			response = GATEWAY.purchase(inputParams[:price], creditCard, :ip => inputParams[:ipAddress],
-				:billing_address => address)
+		if(creditCard.valid?)
+			response = GATEWAY.purchase(params[:price], creditCard, :ip => params[:ipAddress],
+				:billing_address => billing)
 
 			return {:complete => response.success?, :message => response.message}
 		else

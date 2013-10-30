@@ -31,7 +31,7 @@ class Users < ActiveRecord::Base
 	end
 
 	def self.AddNewUser(firstname, lastname, email, pwd, confirmPwd)
-		if(password.to_s == confirm_pwd.to_s)
+		if(pwd.to_s == confirmPwd.to_s)
 			userguid = SecureRandom.urlsafe_base64(16, false)
 
 			encrypt_pwd = BCrypt::Password.create(pwd);
@@ -51,16 +51,23 @@ class Users < ActiveRecord::Base
 		end
 	end
 
-	def self.UpdateExpDate(email, extiontionType)
-		user = find_by_email(email);
+	def self.UpdateExpDate(email, extentionType)
+		user = find_by(login: email);
 
 		if(extentionType.to_s == "6months")
 			renew = 180.days.from_now;
 			user.update(:expDate => renew)
-		elsif(extiontionType.to_s == "12months")
+		elsif(extentionType.to_s == "12months")
 			renew = 365.days.from_now;
 			user.update(:expDate => renew)
 		end
+
+		Transactions.create(
+			:transactionId 	=> SecureRandom.urlsafe_base64(10, false),
+			:userId 		=> user.userId,
+			:subscription	=> extentionType.to_s)
+
+		return
 	end
 
 	def self.DeleteUser(email)

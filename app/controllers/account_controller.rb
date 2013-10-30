@@ -51,7 +51,7 @@ class AccountController < ApplicationController
 			params[:prov], params[:postal]])
 
 		if (success != nil && success[:complete] == true)
-			Users.UpdateExpDate(params[:email], params[:membertype]) and redirect_to(root_url)
+			Users.UpdateExpDate(params[:email], params[:memberType]) and redirect_to(root_url)
 		elsif success.nil?
 			flash[:warning] = "FAILURE TO VALIDATE YOUR CREDIT CARD! PLEASE TRY AGAIN" and redirect_to("/account/renew")
 		else
@@ -61,11 +61,13 @@ class AccountController < ApplicationController
 
 	def newUserScuscription
 		if(Users.find_by(login: params[:email])!= nil)
-			flash[:warning] = "Email Already Exist" and redirect_to("/account/Registration")
+			flash[:warning] = "Email Already Exist"
+			redirect_to("/account/Registration") and return
 		end
 
 		if(params[:cfm_password].to_s != params[:password].to_s)
-			flash[:warning] = "Password do not Match" and redirect_to("/account/Registration")
+			flash[:warning] = "Password do not Match"
+			redirect_to("/account/Registration") and return
 		end
 
 		if(Users.AddNewUser(params[:firstName], params[:lastName], params[:email], params[:password], params[:cfm_password]))
@@ -73,23 +75,35 @@ class AccountController < ApplicationController
 				&& (!params[:exp_month].empty?) && (!params[:exp_month].empty?) && (!params[:cvv].empty?) \
 				&& (!params[:address].empty?) && (!params[:city].empty?) && (!params[:prov].empty?) && (!params[:postal].empty?))
 
-				success = Users.PurchaseSubscribtion(params[:noc_firstname], params[:noc_lastname], params[:cardno], params[:cardtype], \
-					params[:exp_month], params[:exp_year], params[:cvv], 90, request.remote_ip, params[:address], params[:city], \
-					params[:prov], params[:postal])
+				success = Transactions.PurchaseSubscribtion(
+						:firstname				=> params[:noc_firstname],
+						:lastname				=> params[:noc_lastname],
+						:cardno					=> params[:cardno],
+						:cardtype				=> params[:cardtype],
+						:cvv					=> params[:cvv],
+						:exp_month				=> params[:exp_month],
+						:exp_year				=> params[:exp_year],
+						:price					=> 90, # this price here will have to change!
+						:ipAddress				=> request.remote_ip,
+						:address				=> params[:address],
+						:city					=> params[:city],
+						:province				=> params[:prov],
+						:postal					=> params[:postal])
 
 				if (success != nil && success[:complete] == true)
-					Users.UpdateExpDate(params[:email], params[:membertype]) and redirect_to(root_url)
+					Users.UpdateExpDate(params[:email], params[:memberType])
+					redirect_to(root_url) and return
 				elsif success.nil?
 					flash[:warning] = "FAILURE TO VALIDATE YOUR CREDIT CARD! PLEASE TRY AGAIN"
-					Users.DeleteUser(params[:email]) and redirect_to("/account/Registration")
+					Users.DeleteUser(params[:email]) and return
 				else
-					flash[:warning] = success[:message] and redirect_to("/account/Registration")
+					flash[:warning] = success[:message]
 				end
 			else
-				Users.DeleteUser(params[:email]) and redirect_to("/account/Registration")
+				Users.DeleteUser(params[:email])
 			end
 		else
-			Users.DeleteUser(params[:email]) and redirect_to("/account/Registration")
+			Users.DeleteUser(params[:email])
 		end
 	end
 end
