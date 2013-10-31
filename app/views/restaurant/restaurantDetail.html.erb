@@ -22,7 +22,11 @@
 				<table style="height: 200px;">
 					<tr>
 						<th class="Caption">RESERVATION:</th>
-						<td style="line-height: 1.0"><%= @Reservation %></td>
+						<%if(@Reservation.include?'http://')%>
+							<td style="line-height: 1.0"><a href="<%= @Reservation%>"  target="_blank">Please Click here For Information</a></td>
+						<%else%>
+							<td style="line-height: 1.0"><%= @Reservation %></td>
+						<%end%>
 					</tr>
 					<tr>
 						<th class="Caption">PHONE:</th>
@@ -30,7 +34,11 @@
 					</tr>
 					<tr>
 						<th class="Caption">HOURS:</th>
-						<td style="line-height: 1.0"><%= @Hours %></td>
+						<%if(@Hours.include?'http://')%>
+							<td style="line-height: 1.0"><a href="<%= @Hours%>"  target="_blank">Please Click here For Information</a></td>
+						<%else%>
+							<td><%=@Hour%></td>
+						<%end%>
 					</tr>
 					<tr>
 						<th class="Caption">WHY WE LOVE <%= @Name %>:</th>
@@ -73,3 +81,31 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$(window).bind("ready", function() {
+		var latitude = $("#latitude_hid").val();
+		var longitude = $("#longitude_hid").val();
+
+		InitWithLocation(latitude, longitude);
+	});
+
+	function InitWithLocation(lat, lng)
+	{
+	    var mapProp = {
+	        center:new google.maps.LatLng(lat,lng),
+	        zoom:17,
+	        mapTypeId:google.maps.MapTypeId.ROADMAP
+	    };
+
+	    map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+	    var latlong = new google.maps.LatLng(lat, lng);
+
+	    var marker = new google.maps.Marker({
+        title: "restaurantLocation",
+        map: map,
+        position: latlong
+      });
+	}
+</script>

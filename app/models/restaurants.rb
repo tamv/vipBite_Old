@@ -24,7 +24,7 @@ class Restaurants < ActiveRecord::Base
 			:email				=> params[:email],
 			:phone				=> params[:phone],
 			:operatinghour		=> params[:operatinghour],
-			:deatilId			=> params[:detailId],
+			:detailId			=> params[:detailId],
 			:tags				=> params[:tags],
 			:modifieddate		=> params[:dateInsert],
 			:latitude			=> latlong[0].latitude,

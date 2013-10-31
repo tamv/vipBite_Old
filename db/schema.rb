@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 3) do
   enable_extension "plpgsql"
 
   create_table "details", force: true do |t|
-    t.string "deatilId"
+    t.string "detailId"
     t.text   "promo"
     t.text   "promoDetail"
     t.string "reservation"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string   "operatinghour"
     t.float    "longitude"
     t.float    "latitude"
-    t.string   "deatilId"
+    t.string   "detailId"
     t.string   "tags"
     t.datetime "modifieddate"
     t.datetime "created_at"

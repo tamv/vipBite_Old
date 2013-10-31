@@ -14,7 +14,7 @@ class MigrateRestaurants < ActiveRecord::Migration
 			t.float :longitude
 			t.float :latitude
 
-			t.string :deatilId
+			t.string :detailId
 			t.string :tags
 			t.datetime :modifieddate
 			t.timestamps

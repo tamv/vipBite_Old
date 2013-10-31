@@ -1,7 +1,7 @@
 class MigrateDetails < ActiveRecord::Migration
   def change
   	create_table :details do |t|
-  		t.string :deatilId
+  		t.string :detailId
   		t.text :promo
   		t.text :promoDetail
   		t.string :reservation
