@@ -17,7 +17,8 @@
 								</div>
 							</div>
 							<div class="span-4 margin-bottom-5px clickable" onclick="showRestaurantLocation('<%=rest.restaurantname%>')">
-								<h3 itemprop="name"><%= rest.restaurantname %></h3>
+								<h3 class="boldFont" itemprop="name"><%= rest.restaurantname %></h3>
+								<p itemprop="telephone">phone: <%= rest.phone %></p>
 								<p itemprop="address" class="vipBiteRegularFont"><%= [rest.address, rest.city, rest.province, rest.postal].join(", ")%></p>
 								<input class="hid_location" id="<%=rest.restaurantname%>" type="hidden" value='{"name": "<%=rest.restaurantname%>", "latitude": <%=rest.latitude%>, "longitude": <%=rest.longitude%>}'/>
 							</div>

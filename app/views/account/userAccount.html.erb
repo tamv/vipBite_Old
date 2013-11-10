@@ -28,5 +28,10 @@
 				<div class="last"><span style="float:right"><%= submit_tag('APPLY CHANGE', :class=>"accountButton clickable") %></span></div>
 			<% end %>
 		</div>
+		<div id="TEST" class="span-7 push-2">
+			<%if(@loginUserExp >= Time.now) %>
+				<img src="/Image/Shared/validMember.png" width="200px;" height="200px"/>
+			<%end%>
+		</div>
 	</div>
 </div>

@@ -19,79 +19,9 @@ body {
 /* FONT-FACE 
 -------------------------------------------------------------- */
 
-@font-face {
-  font-family: "VIPBiteDefault";
-  src: url("/Font/AnoRegular-Regular.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Aaargh";
-  src: url("/Font/Aaargh.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Bonveno";
-  src: url("/Font/BonvenoCF-Light.otf") format("opentype"); 
-}
-
-@font-face {
-  font-family: "ColabReg";
-  src: url("/Font/ColabReg.otf") format("opentype"); 
-}
-
-
-.vipBiteRegularFont {
-  font-family: "VIPBiteDefault", helvetica;
-  font-size: 11px;
-}
-
-.ColabRegFont{
-  font-family: "ColabReg", helvetica;
-  font-size: 11px;
-}
-
-.AaarghFont{
-  font-family: "Aaargh", helvetica;
-  font-size: 11px;
-}
-
-.BonvenoFont{
-  font-family: "Bonveno", helvetica;
-  font-size: 11px;
-}
-
-/* Custon Font Tag class
--------------------------------------------------------------- */
-h1.AaarghFont {
-  font-family: "Aaargh", helvetica;
-  font-size: 3em; line-height: 1; margin-bottom: 0.5em;
-}
-
-h4.BonvenoFont {
-  font-family: "Bonveno", helvetica;
-  font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em;
-  font-weight: bolder;
-}
-
-p.BonvenoFontBold {
-  font-family: "Bonveno", helvetica;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-.imageCaption{
-  font-family: "Bonveno", helvetica;
-  font-size: 1.2em; line-height: 1.0;
-  font-weight: bolder;
-  font-style: italic;
-  text-transform:uppercase;
-}
-
-label.DetailCaption{
-  font-family: "Bonveno", helvetica;
-  font-size: 0.9em; line-height: 1.0;
-  color: #3E4747;
-  font-style:italic;
+@FONT-FACE {
+  font-family: "JuliusSanOne";
+  src: url("/Font/JuliusSansOne.ttf");
 }
 
 /* Headings
@@ -99,11 +29,11 @@ label.DetailCaption{
 
 h1,h2,h3,h4,h5,h6 { font-weight: normal; color: #111; }
 
-h1 { font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
+h1 { font-size: 3em; line-height: 1; margin-bottom: 0.2em; }
 h2 { font-size: 2em; margin-bottom: 0.75em; }
-h3 { font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
-h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
-h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+h3 { font-size: 1.5em; line-height: 1; margin-bottom: 0.5em; }
+h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1em; }
+h5 { font-size: 1em; font-weight: bold; margin-bottom: 1em; }
 h6 { font-size: 1em; font-weight: bold; }
 
 h1 img, h2 img, h3 img,
@@ -115,7 +45,7 @@ h4 img, h5 img, h6 img {
 /* Text elements
 -------------------------------------------------------------- */
 
-p           { margin: 0 0 1.5em; }
+p           { margin: 0 auto }
 /*
   These can be used to pull an image at the start of a paragraph, so
   that the text flows around it (usage: <p><img class="left">Text</p>)
@@ -193,3 +123,7 @@ caption     { background: #eee; }
 .last      { margin-right:0; padding-right:0; }
 .top       { margin-top:0; padding-top:0; }
 .bottom    { margin-bottom:0; padding-bottom:0; }
+
+.boldFont {
+  font-weight: 900;
+}

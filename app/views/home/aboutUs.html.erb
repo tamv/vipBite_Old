@@ -18,12 +18,12 @@
 			<%= form_tag(controller: 'home', action: 'contactUs', method: 'post') do %>
 				<% if(!checkUserCookies)%>
 					<h4 class="boldFont">please enter your email address here!"</h4>
-					<%= email_field_tag('email', params[:email] || nil, size:35, maxlength: 30, :class=>"contactUsEmailInput")%>
+					<%= email_field_tag('email', params[:email] || nil, size:35, maxlength: 30, style:"background-color: #878282")%>
 					<hr class ="space"/>
 				<% else %>
 					<h4 class="boldFont"><%= @current_user.login %></h4>
 				<% end %>
-				<%= text_area_tag('emailContent', params[:emailContent] || nil, :class=>"contactUsEmailContent") %>
+				<%= text_area_tag('emailContent', params[:emailContent] || nil, style:"width: 630px; height: 300px; background-color: #878282") %>
 				<%= submit_tag('SUBMIT', :class=>"contactusSubmitButton clickable", style:"float:right; margin-top:10px;") %>
 			<% end %>
 		</div>

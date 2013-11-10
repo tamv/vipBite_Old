@@ -2,6 +2,7 @@ Src::Application.routes.draw do
   root to: 'home#Index'
 
   match '/home/ContactUs', :to => 'home#contactUs', via:[:get, :post]
+  match '/home/AboutUs', :to => 'home#aboutUs', via:[:get, :post]
 
   match '/session/login', :to => 'session#LogIn', via:[:post]
   match '/session/logout', :to => 'session#LogOut', via:[:get, :post]

@@ -1,23 +1,32 @@
 <div class="body-container">
 	<div id="pageContent" class="container" style="margin-top: 40px">
 		<div class="span-8">
-
 			<input id="latitude_hid" type="hidden" value="<%= @Latitude %>"/>
 			<input id="longitude_hid" type="hidden" value="<%= @Longitude %>"/>
-			
 			<h1><%= @Name %></h1>
-
-			<div class="restaurantDetailPromoBox">
+			<h6><%= @Tags %></h6>
+			<hr class="space"/>
+			<div class="RestaurantImageView">
+				<ul class="imglist">
+					<% @Images.each do |img| %>
+						<li class="imgthumbnail"><a href="<%= img %>" data-lightbox="restaurantImg"/><img src="<%= img %>" width="40px" height="40px"/></a></li>
+					<% end %>
+				</ul>
+			</div>
+			<div id="<%= @Name %>" data-corner="bevel tl cc:#fff 20px keep"class="restaurantDetailPromoBox">
 				<div class="restaurantDetailsPromotionContent">
 					<label class="DetailCaption">VIPbiteDEAL:</label>
 					<label class="Promotion"><%= @Deal %></label>
 					<br/>
-					<p class="promotionDetail">
-						<%= @Deal %>
-					</p>
+					<p class="promotionDetail"><%= @Deal %></p>
+					<br/>
+					<a id = "RestaurantTweetButton" class="twitterpopup" href="https://twitter.com/share?url=<%= request.original_url%>&text=TWEET DEAL FROM VIPBITE&via=VIPbite&tw_p=tweetbutton">
+						<h5 style="line-height: 1px;"><img src="/Image/Shared/whiteTwitter.png" width="10px;" heihgt="10px;" style="vertical-align: middle"/>
+							<label>TWEET THIS DEAL</label>
+						</h5>
+					</a>
 				</div>
 			</div>
-
 			<div class="restaurantDetailList">
 				<table style="height: 200px;">
 					<tr>
@@ -46,19 +55,11 @@
 					</tr>
 				</table>
 			</div>
-
 			<div class="urbanspoonLink">
-				<hr/><a href="http://www.<%= @urbanspoonlink%>" target="_blank"><img src="Image/Shared/uspoonImg.png" style="img-align:center"/></a>
+				<hr/><a href="http://www.<%= @urbanspoonlink%>" target="_blank"><img src="/Image/Shared/urbanspoon.png" style="img-align:center"/></a>
 			</div>
 		</div>
 		<div class="span-16">
-			<div class="RestaurantImageView">
-				<ul class="imglist">
-					<% @Images.each do |img| %>
-						<li class="imgthumbnail"><a href="<%= img %>" data-lightbox="restaurantImg"/><img src="<%= img %>" width="70px" height="100%"/></a></li>
-					<% end %>
-				</ul>
-			</div>
 			<span id="googleMap" style="display: block; margin-top:10px; height: 400px;"></span>
 			<hr class="margin-top-10px"/>
 			<div class="span-7">
@@ -88,6 +89,7 @@
 		var longitude = $("#longitude_hid").val();
 
 		InitWithLocation(latitude, longitude);
+		$("#<%= @Name %>").corner();
 	});
 
 	function InitWithLocation(lat, lng)
@@ -108,4 +110,9 @@
         position: latlong
       });
 	}
+
+	!function(d,s,id){
+	var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id))
+		{js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}
+	}(document, 'script', 'twitter-wjs');
 </script>

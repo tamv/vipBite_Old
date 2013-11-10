@@ -15,17 +15,19 @@
 	background-color: rgba(255, 255, 255, 0.7)
 }
 
-.headingFont {
-
+.headingSection {
+	text-align: top;
+	line-height: 1;
 }
 
 .homesubmitButton {
-	background-color: #C9CBD4;
+	color: white;
+	background-color: #232423;
 	border: solid 1px black;
 	text-align:center;
 	padding:5px;
 	height: 20px;
-	width: 200px;
+	width: 220px;
 	position: absolute;
 	right: 0px;
 	bottom: 10px;
@@ -41,4 +43,23 @@
 	font-size: 10px;
 	font-weight: bolder;
 	padding: 7px;
+}
+
+td.howItWorkContent {
+	font-size: 11px;
+	font-weight: 900;
+}
+
+.contactUsEmailInput {
+	color: #F0F1F5;
+	background-color: #878282;
+	border: solid 1px black;
+}
+
+.contactUsEmailContent {
+	width: 630px;
+	height: 300px; 
+	color: #F0F1F5;
+	background-color: #878282;
+	border: solid 1px black;
 }

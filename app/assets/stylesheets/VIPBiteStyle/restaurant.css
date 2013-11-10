@@ -4,6 +4,12 @@
 	overflow-y: auto;
 }
 
+.searchInput{
+		margin-left:5px;
+	background-color: #878282;
+	border: solid 1px black;
+}
+
 .searchMapStyle {
 	display: block;
 	height: 100%;
@@ -23,27 +29,26 @@
 .restaurantDetailPromoBox {
 	width: 95%;
 	height: 100px;
-	margin: 0px auto;
 	margin-bottom: 10px;
-	border: 1px black solid;
-	border-radius: 20px 0px 0px 0px;
+	border: 1px white solid;
 }
 
 .restaurantDetailsPromotionContent {
 	width: 80%;
 	height: 80%;
 	margin-top: 10px;
-	margin-left: 10px;
+	margin-left: 25px;
 }
 
 .restaurantDetailList {
 	width: 95%;
-	margin: 0px auto; 
 }
 
 .RestaurantImageView {
 	overflow-x: auto;
 	overflow-y:hidden;
+	margin: 0px auto;
+	margin-bottom: 10px;
 }
 
 .urbanspoonLink {
@@ -92,4 +97,14 @@ ul.imglist{
 	white-space:nowrap;
 	margin: 0px auto;
 	padding: 0px;
+}
+
+#RestaurantTweetButton {
+	display: block;
+    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #ccc;
+    width: 120px;
+    float: right;
 }

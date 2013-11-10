@@ -39,6 +39,7 @@ class RestaurantController < ApplicationController
 			@Hours 			= result_info.detaillink
 			@Comment 		= result_info.comment
 			@urbanspoonlink = result_info.urbanspoon
+			@Tags			= result_overview.tags
 
 			@Latitude		= result_overview.latitude
 			@Longitude		= result_overview.longitude
