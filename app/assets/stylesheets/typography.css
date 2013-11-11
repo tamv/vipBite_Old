@@ -1,27 +1,9 @@
-/* --------------------------------------------------------------
-
-   typography.css
-   * Sets up some sensible default typography.
-
--------------------------------------------------------------- */
-
-/* Default font settings.
-   The font-size percentage is of 16px. (0.75 * 16px = 12px)
-html { font-size:100.01%; }
-
-body {
-  font-size: 75%;
-  color: #222;
-  background: #fff;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-}*/
-
 /* FONT-FACE 
 -------------------------------------------------------------- */
 
-@FONT-FACE {
+@font-face {
   font-family: "JuliusSanOne";
-  src: url("/Font/JuliusSansOne.ttf");
+  src: url("/Font/JuliusSansOne.ttf") format("truetype");
 }
 
 /* Headings
@@ -46,10 +28,6 @@ h4 img, h5 img, h6 img {
 -------------------------------------------------------------- */
 
 p           { margin: 0 auto }
-/*
-  These can be used to pull an image at the start of a paragraph, so
-  that the text flows around it (usage: <p><img class="left">Text</p>)
- */
 .left       { float: left !important; }
 p .left     { margin: 1.5em 1.5em 1.5em 0; padding: 0; }
 .right      { float: right !important; }
@@ -87,19 +65,10 @@ dd     { margin-left: 1.5em;}
 /* Tables
 -------------------------------------------------------------- */
 
-/*
-  Because of the need for padding on TH and TD, the vertical rhythm
-  on table cells has to be 27px, instead of the standard 18px or 36px
-  of other elements.
- */
 table         { margin-bottom: 1.4em; width:100%; }
 th            { font-weight: bold; }
 thead th      {}
 th,td,caption { padding: 4px 10px 4px 5px; }
-/*
-  You can zebra-stripe your tables in outdated browsers by adding
-  the class "even" to every other table row.
- */
 tbody tr:nth-child(even) td,
 tbody tr.even td  {}
 tfoot       { font-style: italic; }
