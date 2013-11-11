@@ -31,6 +31,8 @@
 		<div id="TEST" class="span-7 push-2">
 			<%if(@loginUserExp >= Time.now) %>
 				<img src="/Image/Shared/validMember.png" width="200px;" height="200px"/>
+			<% else %>
+				<img src="/Image/Shared/expiredMember.png" width="200px;" height="200px"/>
 			<%end%>
 		</div>
 	</div>
