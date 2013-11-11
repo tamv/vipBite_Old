@@ -1,11 +1,12 @@
-.searchResultContainer {
+#searchResultContainer {
 	margin-bottom:20px;
 	height:470px;
+	margin-left:5px;
 	overflow-y: auto;
 }
 
 .searchInput{
-		margin-left:5px;
+	margin-left:5px;
 	background-color: #878282;
 	border: solid 1px black;
 }

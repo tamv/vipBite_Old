@@ -1,4 +1,5 @@
 class RestaurantController < ApplicationController
+	
 	def searchRestaurant
 		if(request.get?)
 			@searchRestaurant = Restaurants.limit(10)

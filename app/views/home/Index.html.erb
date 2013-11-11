@@ -54,18 +54,16 @@
 
 				<p class="margin-left-10px margin-bottom-20px">... and counting. Try somewhere new tonight.</p>
 				<hr/>
-				<table class="span-5" class="margin-auto">
-					<% Restaurants.limit(5).each do |rests| %>
-						<tr>
-							<th style="margin-left: 20px;">
-								<%= link_to image_tag('/Image/restaurant_logo/' << rests.imageUrl, style:"width:70px; height:60px;"), {controller: 'restaurant', action: 'restaurantDetail', restaurant: rests.restaurantname}, :target => "_blank" %>
-							</th>
-							<td>
-								<text class="imageCaption"><%= rests.restaurantname %></text>
-							</td>
-						</tr>
+				<ul class="span-5" class="margin-auto">
+					<% Restaurants.limit(5).each do |rest| %>
+						<li>
+							<div class="clickable">
+								<%= link_to image_tag('/Image/restaurant_logo/' << rest.imageUrl, style:"width: 100px; height:50px; display:inline; vertical-align: middle"), {controller: 'restaurant', action: 'restaurantDetail', restaurant: rest.restaurantname}, :target => "_blank" %>
+								<h3 class="boldFont" style="display: inline; margin-left: 20px;"><%= rest.restaurantname %></h3>
+							</div>
+						</li>
 					<%end%>
-				</table>
+				</ul>
 
 				<a class="linkFont" href="/restaurant/search" style="float: right">click to see more</a>
 			</div>
